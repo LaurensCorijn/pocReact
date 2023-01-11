@@ -7,9 +7,12 @@ import Button from '../../01_atoms/Button/Button'
 import {useTranslation} from 'react-i18next'
 import IProduct from '../../../structures/IProduct.interface'
 import {addProduct} from '../../../api/api'
+import RoutePaths from '../../../structures/enums/Routes.enum'
+import { useNavigate } from 'react-router-dom'
 
 const AddForm: FC<Record<string, never>> = () => {
     const { t } = useTranslation()
+    const navigate = useNavigate()
 
     const defaultValues = {
         name: '',
@@ -38,7 +41,7 @@ const AddForm: FC<Record<string, never>> = () => {
             description: data.description
         }
 
-        addProduct(body).then(r => console.log('toegevoegd')) //redirecten naar list pagina)
+        addProduct(body).then(r => navigate(RoutePaths.LIST, {replace:true})) //redirecten naar list pagina)
     }
 
     return (
@@ -48,7 +51,7 @@ const AddForm: FC<Record<string, never>> = () => {
                     console.log(fieldErrors)
                 })}>
                 <div className=''>
-                    <p>{t('addProductTitle')}</p>
+                    <p className='fontTitle'>{t('addProductTitle')}</p>
                     <TextInput<AddFormValues>
                         name='name'
                         type='text'
@@ -79,6 +82,7 @@ const AddForm: FC<Record<string, never>> = () => {
                     />
                     <div>
                         <Button
+                            className='btn btn-primary'
                             type='submit'
                             label={'addButton'}
                             disabled={!formMethods.formState.isValid}

@@ -2,6 +2,37 @@
   text-align: center;
 }
 
+.Flex {
+  display: flex;
+}
+
+.RMargin {
+  margin-right: 10px;
+}
+
+.BorderColor {
+  border-color: #f8f9fa;
+}
+
+.fontTitle {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.fontText {
+  font-size: 15px;
+}
+
+.fontLabel {
+  font-size: 15px;
+}
+
+.fontNav {
+  font-size: 20px;
+  font-weight: bolder;
+  color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

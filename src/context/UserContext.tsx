@@ -5,7 +5,7 @@ import createGenericContext from '../utils/genericContext.utils'
 import RoutePaths from '../structures/enums/Routes.enum'
 
 interface IUserContext {
-    //handle logout?
+    handleLogout: () => void
     handleLogin: (token: string) => void
     isLoggedIn: boolean
     bearer: string
@@ -27,7 +27,13 @@ const UserProvider: FC<IUserProviderProperties> = ({ children }) => {
         navigate(RoutePaths.LIST, {replace:true})
     }
 
+    const handleLogout = () => {
+        setBearer('')
+        navigate(RoutePaths.LIST, {replace:true})
+    }
+
     const userContextValue = {
+        handleLogout,
         handleLogin,
         isLoggedIn: bearer !== '',
         bearer

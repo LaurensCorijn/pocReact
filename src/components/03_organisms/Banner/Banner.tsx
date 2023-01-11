@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import NavigationLink from '../../01_atoms/NavigationLink/NavigationLink'
 import LanguageSwitch from '../../01_atoms/LanguageSwitch/LanguageSwitch'
-import {useTranslation} from 'react-i18next'
 import {useUserContext} from '../../../context/UserContext'
 
 const Banner: FC<Record<string, never>> = () => {
@@ -27,6 +26,7 @@ const Banner: FC<Record<string, never>> = () => {
                             <ul className='navbar-nav'>
                             <li className='mx-3'>
                                 <NavigationLink
+
                                     linkPath='/'
                                     label='Logout' />
                             </li>

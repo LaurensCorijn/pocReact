@@ -14,7 +14,7 @@ const Card: FC<ICardProperties> = ({product}) => {
 
     return (
         <div className='card my-3'>
-            <img src='https://www.veggipedia.nl/assets/Uploads/Products/790c27918e/Jonagold-appel-fruit-veggipedia.jpg' className='card-img-top' alt={product.name}/>
+            <img src={product.image} className='card-img-top' alt={product.name}/>
             <div className='card-body'>
                 <div className='d-flex justify-content-between'>
                     <p>{product.name}</p>

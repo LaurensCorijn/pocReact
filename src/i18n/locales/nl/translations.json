@@ -29,5 +29,6 @@
   "productPricePlaceholder": "Prijs",
   "productDescriptionLabel": "Beschrijving van het product",
   "productDescriptionPlaceholder": "Beschrijving",
-  "addButton": "Voeg toe"
+  "addButton": "Voeg toe",
+  "search": "Zoek product"
 }

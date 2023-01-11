@@ -29,5 +29,6 @@
   "productPricePlaceholder": "Price",
   "productDescriptionLabel": "Description of the product",
   "productDescriptionPlaceholder": "Description",
-  "addButton": "Add product"
+  "addButton": "Add product",
+  "search": "Search product"
 }

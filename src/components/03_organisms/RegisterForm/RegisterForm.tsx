@@ -48,7 +48,7 @@ const RegisterForm: FC<Record<string, never>> = () => {
                 onSubmit={formMethods.handleSubmit(submitRegisterForm, (fieldErrors) => {
                     console.log(fieldErrors)
                 })}>
-                <div className=''>
+                <div>
                     <p className='fontTitle'>{t('registerTitle')}</p>
                     <TextInput<RegisterFormValues>
                         name='email'
@@ -73,6 +73,7 @@ const RegisterForm: FC<Record<string, never>> = () => {
                     />
                     <div>
                         <Button
+                            className='btn btn-primary'
                             type='submit'
                             label={'registerButton'}
                             disabled={!formMethods.formState.isValid}

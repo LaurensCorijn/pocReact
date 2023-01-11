@@ -16,14 +16,12 @@ const AddPage: FC<Record<string, never>> = () => {
     }, [isLoggedIn, navigate])
 
     return (
-        <div>
+        <div className='bg-light'>
             <Banner />
-            <main className='container bg-white'>
+            <main className='container bg-white vh-100'>
                 <div className='d-flex justify-content-center'>
-                    <div className='flex-1 flex-column'>
-                        <div className='d-flex justify-content-center border border-dark p-5 rounded'>
-                            <AddForm />
-                        </div>
+                    <div className='mt-5 border BorderColor p-5 rounded'>
+                        <AddForm />
                     </div>
                 </div>
             </main>

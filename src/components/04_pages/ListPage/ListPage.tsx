@@ -1,17 +1,19 @@
-import { FC } from 'react'
+import {FC, FormEventHandler, useMemo, useState} from 'react'
 import Card  from '../../02_molecules/Card/Card'
 import IProduct from '../../../structures/IProduct.interface'
 import { getProducts } from '../../../api/api'
 import { useQuery } from 'react-query'
 import Banner from '../../03_organisms/Banner/Banner'
+import {useTranslation} from 'react-i18next'
 
  const ListPage: FC<Record<string,never>> = () => {
-    //Hier reactQuery toevoegen
-     //const products: Array<IProduct> = [] //Dit vullen met producten uit api
+     const { t } = useTranslation()
      const queryProducts = useQuery(['queryProducts'], async () => getProducts(), {refetchInterval: 10_000})
      const products = queryProducts.data
+     const searchPlaceholder = t('search')
 
-     const products2: Array<IProduct> = [
+
+     let products2: Array<IProduct> = [
          {
              id: '1',
              name: 'test',
@@ -49,19 +51,29 @@ import Banner from '../../03_organisms/Banner/Banner'
          }
 
      ]
+     const [search, setSearch] = useState('')
 
-     //search balk toevoegen?
+     const filteredProducts = useMemo(
+         () => products?.filter((p) => p.name.toLowerCase().includes(search.toLowerCase())),
+         [search, products]
+     )
     return (
         <div className='bg-light'>
         <Banner />
         <main className='container pt-5 bg-white'>
-            { products !== undefined ? (
+            { filteredProducts !== undefined ? (
                 <div>
                     <div>
-                        Searchbalk hier
+                        <input
+                            type="search"
+                            onChange={(e)=>setSearch(e.target.value)}
+                            placeholder={searchPlaceholder}
+                            className='form-control'
+                            style={{width: '50%'}}
+                        />
                     </div>
                     <div className='row justify-content-start'>
-                        {products2.map((product) => (
+                        {filteredProducts.map((product) => (
                             <div className='col-md-3'>
                                 <Card
                                     key={product.id}

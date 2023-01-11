@@ -12,7 +12,7 @@ const LanguageSwitch: FC<Record<string, never>> = () => {
     return (
         <div>
             <select
-                className=''
+                className='form-select'
                 onChange={changeLanguage}>
                 <option value='nl'>{i18n.t('nlLabel')}</option>
                 <option value='en'>{i18n.t('enLabel')}</option>

@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import './loginform.css'
 import { useTranslation } from 'react-i18next'
 
 import { FormProvider, SubmitHandler, useForm} from 'react-hook-form'
@@ -38,14 +37,13 @@ const LoginForm: FC<Record<string, never>> = () => {
         }
         login(body).then(() => handleLogin('log'))
     }
-    //border toevoegen
     return (
         <FormProvider {...formMethods}>
             <form
                 onSubmit={formMethods.handleSubmit(submitLoginForm, (fieldErrors) => {
                     console.log(fieldErrors)
                 })}>
-                <div className=''>
+                <div>
                     <p className='fontTitle'>{t('loginTitle')}</p>
                     <TextInput<LoginFormValues>
                         name='email'
@@ -62,7 +60,13 @@ const LoginForm: FC<Record<string, never>> = () => {
                         label={'passwordLabel'}
                     />
                 </div>
-                <div className=''>
+                <div className='Flex'>
+                    <Button
+                        className='btn btn-primary RMargin'
+                        type='submit'
+                        label={'loginButton'}
+                        disabled={!formMethods.formState.isValid}
+                    />
                     <div>
                         <Link
                             to={RoutePaths.REGISTER}
@@ -70,11 +74,6 @@ const LoginForm: FC<Record<string, never>> = () => {
                             {t("registerLink")}
                         </Link>
                     </div>
-                    <Button
-                        type='submit'
-                        label={'loginButton'}
-                        disabled={!formMethods.formState.isValid}
-                    />
                 </div>
             </form>
         </FormProvider>
