@@ -1,5 +1,7 @@
 import { FC } from 'react'
+import './navigationLink.css'
 import { NavLink } from 'react-router-dom'
+import NavigationLinkLabel from '../NavigationLinkLabel/NavigationLinkLabel'
 
 interface INavLinkProperties {
     linkPath: string
@@ -12,10 +14,12 @@ const NavigationLink: FC<INavLinkProperties> = ({linkPath, label}) => {
             <NavLink
                 end
                 to={linkPath}
-                className=''
+                className='fontNav'
                 >
-                //Label object toevoegen
+                 <NavigationLinkLabel label={label} />
             </NavLink>
         </div>
     )
 }
+
+export default NavigationLink

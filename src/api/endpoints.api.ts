@@ -5,4 +5,6 @@ export const GET_PRODUCT = (id: string) => `${BaseUrl}/api/product/${id}`
 
 export const POST_PRODUCT = `${BaseUrl}/api/product`
 
-//LOGIN EN REGISTREER NOG TOEVOEGEN
+export const LOGIN = `${BaseUrl}/api/account`
+export const REGISTER = `${BaseUrl}/api/account/register`
+

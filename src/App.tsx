@@ -7,6 +7,10 @@ import ListPage from './components/04_pages/ListPage/ListPage'
 import Login from './components/04_pages/Login/Login'
 import Register from './components/04_pages/Register/Register'
 import {QueryClient, QueryClientProvider} from 'react-query'
+import DetailPage from './components/04_pages/DetailPage/DetailPage'
+import ProtectedUserRoute from './components/00_fundament/ProtectedUserRoute'
+import AddPage from './components/04_pages/AddPage/AddPage'
+import ApplicationContext from './context/ApplicationContext'
 
 
 const App: FC<Record<string, never>> = () => {
@@ -15,12 +19,31 @@ const App: FC<Record<string, never>> = () => {
     return (
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
+                <ApplicationContext>
                 <Routes>
                     <Route
                         index
                         path={RoutePaths.ROOT}
                         element={<ListPage />}
                     />
+                    <Route
+                        path={RoutePaths.PRODUCT}
+                        element={<ListPage />}
+                    />
+                    <Route
+                        path={RoutePaths.LIST}
+                        element={<ListPage />}
+                    />
+                    <Route
+                        path={RoutePaths.DETAIL}
+                        element={<DetailPage id={'1'} />}
+                    />
+                    <Route element={<ProtectedUserRoute />}>
+                        <Route
+                            path={RoutePaths.ADD}
+                            element={<AddPage />}
+                        />
+                    </Route>
                     <Route
                         path={RoutePaths.LOGIN}
                         element={<Login />}
@@ -30,6 +53,7 @@ const App: FC<Record<string, never>> = () => {
                         element={<Register />}
                     />
                 </Routes>
+                </ApplicationContext>
             </BrowserRouter>
         </QueryClientProvider>
     )
