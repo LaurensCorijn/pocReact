@@ -30,5 +30,6 @@
   "productDescriptionLabel": "Beschrijving van het product",
   "productDescriptionPlaceholder": "Beschrijving",
   "addButton": "Voeg toe",
-  "search": "Zoek product"
+  "search": "Zoek product",
+  "noProductsMessage": "Geen producten beschikbaar"
 }

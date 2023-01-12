@@ -1,6 +1,5 @@
-import {FC, FormEventHandler, useMemo, useState} from 'react'
+import {FC, useMemo, useState} from 'react'
 import Card  from '../../02_molecules/Card/Card'
-import IProduct from '../../../structures/IProduct.interface'
 import { getProducts } from '../../../api/api'
 import { useQuery } from 'react-query'
 import Banner from '../../03_organisms/Banner/Banner'
@@ -12,45 +11,6 @@ import {useTranslation} from 'react-i18next'
      const products = queryProducts.data
      const searchPlaceholder = t('search')
 
-
-     let products2: Array<IProduct> = [
-         {
-             id: '1',
-             name: 'test',
-             image: 'test',
-             price: 1.4,
-             description: 'test'
-         },
-         {
-             id: '2',
-             name: 'test',
-             image: 'test',
-             price: 1.4,
-             description: 'test'
-         },
-         {
-             id: '3',
-             name: 'test',
-             image: 'test',
-             price: 1.4,
-             description: 'test'
-         },
-         {
-             id: '4',
-             name: 'test',
-             image: 'test',
-             price: 1.4,
-             description: 'test'
-         },
-         {
-             id: '5',
-             name: 'test',
-             image: 'test',
-             price: 1.5,
-             description: 'test'
-         }
-
-     ]
      const [search, setSearch] = useState('')
 
      const filteredProducts = useMemo(
@@ -60,7 +20,7 @@ import {useTranslation} from 'react-i18next'
     return (
         <div className='bg-light'>
         <Banner />
-        <main className='container pt-5 bg-white'>
+        <main className='container pt-5 bg-white vh-100'>
             { filteredProducts !== undefined ? (
                 <div>
                     <div>
@@ -85,7 +45,7 @@ import {useTranslation} from 'react-i18next'
                 </div>
 
             ) : (
-                <div><p>Geen producten beschikbaar</p></div>
+                <div><p>{t('noProductsMessage')}</p></div>
             )}
         </main>
         </div>

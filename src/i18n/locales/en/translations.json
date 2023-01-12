@@ -30,5 +30,6 @@
   "productDescriptionLabel": "Description of the product",
   "productDescriptionPlaceholder": "Description",
   "addButton": "Add product",
-  "search": "Search product"
+  "search": "Search product",
+  "noProductsMessage": "No products available"
 }
