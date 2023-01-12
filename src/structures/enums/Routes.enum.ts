@@ -5,6 +5,7 @@ enum RoutePaths {
     DETAIL = '/product/detail/:id',
     REGISTER = '/register',
     LOGIN = '/login',
+    LOGOUT = '/logout',
     PRODUCT = '/product'
 }
 

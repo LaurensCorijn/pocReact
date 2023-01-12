@@ -11,6 +11,7 @@ import DetailPage from './components/04_pages/DetailPage/DetailPage'
 import ProtectedUserRoute from './components/00_fundament/ProtectedUserRoute'
 import AddPage from './components/04_pages/AddPage/AddPage'
 import ApplicationContext from './context/ApplicationContext'
+import Logout from './components/00_fundament/Logout/Logout'
 
 
 const App: FC<Record<string, never>> = () => {
@@ -52,6 +53,12 @@ const App: FC<Record<string, never>> = () => {
                         path={RoutePaths.REGISTER}
                         element={<Register />}
                     />
+                    <Route element={<ProtectedUserRoute />}>
+                        <Route
+                            path={RoutePaths.LOGOUT}
+                            element={<Logout />}
+                        />
+                    </Route>
                 </Routes>
                 </ApplicationContext>
             </BrowserRouter>

@@ -26,8 +26,7 @@ const Banner: FC<Record<string, never>> = () => {
                             <ul className='navbar-nav'>
                             <li className='mx-3'>
                                 <NavigationLink
-
-                                    linkPath='/'
+                                    linkPath='/logout'
                                     label='Logout' />
                             </li>
                                 <li className='mx-3'>
